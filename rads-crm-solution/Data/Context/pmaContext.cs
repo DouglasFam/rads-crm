@@ -39,35 +39,7 @@ namespace Data.Context
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
             modelBuilder.ApplyConfiguration(new AdversoConfiguration());
-
-            modelBuilder.Entity<Agendamento>(entity =>
-            {
-                entity.ToTable("agendamento", "pma");
-
-                entity.HasIndex(e => e.Idcliente)
-                    .HasName("idcliente");
-
-                entity.HasIndex(e => e.Idcolcad)
-                    .HasName("idcolcad");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Data).HasColumnName("data");
-
-                entity.Property(e => e.Idcliente)
-                    .HasColumnName("idcliente")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Idcolcad)
-                    .HasColumnName("idcolcad")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Tipo)
-                    .HasColumnName("tipo")
-                    .HasColumnType("int(11)");
-            });
+            modelBuilder.ApplyConfiguration(new AgendamentoConfiguration());
 
             modelBuilder.Entity<Cliente>(entity =>
             {
