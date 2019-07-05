@@ -5,7 +5,6 @@ namespace Domain.Entities
 {
     public partial class Agendamento : BaseEntity
     {
-
         public int? Idcliente { get; set; }
         public DateTime? Data { get; set; }
         public int? Idcolcad { get; set; }

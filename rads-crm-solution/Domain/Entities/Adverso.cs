@@ -5,7 +5,6 @@ namespace Domain.Entities
 {
     public partial class Adverso : BaseEntity
     {
-
         public string Nome { get; set; }
         public int? IdRamo { get; set; }
         public int? Idcolcad { get; set; }

@@ -1,5 +1,8 @@
-﻿using Domain.Entities;
+﻿using System;
+using Data.Mapping;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Data.Context
 {
@@ -18,21 +21,15 @@ namespace Data.Context
         public virtual DbSet<Agendamento> Agendamento { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Colaborador> Colaborador { get; set; }
+        public virtual DbSet<Contato> Contato { get; set; }
         public virtual DbSet<Controle> Controle { get; set; }
+        public virtual DbSet<Processo> Processo { get; set; }
         public virtual DbSet<Ramo> Ramo { get; set; }
-
-        // Unable to generate entity type for table 'pma.contato'. Please see the warning messages.
-        // Unable to generate entity type for table 'pma.processo'. Please see the warning messages.
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                #region warning
-                //To protect potentially sensitive information in your connection string,
-                //you should move it out of source code.See http://go.microsoft.com/fwlink/?LinkId=723263 
-                //for guidance on storing connection strings.
-                #endregion 
                 optionsBuilder.UseMySQL("Server=127.0.0.1;port=3306;user=root;database=pma");
             }
         }
@@ -41,43 +38,7 @@ namespace Data.Context
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
-            modelBuilder.Entity<Adverso>(entity =>
-            {
-                entity.ToTable("adverso", "pma");
-
-                entity.HasIndex(e => e.IdRamo)
-                    .HasName("id_Ramo");
-
-                entity.HasIndex(e => e.Idcolcad)
-                    .HasName("idcolcad");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.IdRamo)
-                    .HasColumnName("id_Ramo")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Idcolcad)
-                    .HasColumnName("idcolcad")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Nome)
-                    .HasColumnName("nome")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.IdRamoNavigation)
-                    .WithMany(p => p.Adverso)
-                    .HasForeignKey(d => d.IdRamo)
-                    .HasConstraintName("adverso_ibfk_1");
-
-                entity.HasOne(d => d.IdcolcadNavigation)
-                    .WithMany(p => p.Adverso)
-                    .HasForeignKey(d => d.Idcolcad)
-                    .HasConstraintName("adverso_ibfk_2");
-            });
+            modelBuilder.ApplyConfiguration(new AdversoConfiguration());
 
             modelBuilder.Entity<Agendamento>(entity =>
             {
@@ -205,6 +166,43 @@ namespace Data.Context
                     .HasDefaultValueSql("1");
             });
 
+            modelBuilder.Entity<Contato>(entity =>
+            {
+                entity.ToTable("contato", "pma");
+
+                entity.HasIndex(e => e.Idcliente)
+                    .HasName("idcliente");
+
+                entity.HasIndex(e => e.Idcolaborador)
+                    .HasName("idcolaborador");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Data).HasColumnName("data");
+
+                entity.Property(e => e.Datacontato)
+                    .HasColumnName("datacontato")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.Idcliente)
+                    .HasColumnName("idcliente")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Idcolaborador)
+                    .HasColumnName("idcolaborador")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Obs)
+                    .HasColumnName("obs")
+                    .HasColumnType("mediumtext");
+
+                entity.Property(e => e.Status)
+                    .HasColumnName("status")
+                    .HasColumnType("int(11)");
+            });
+
             modelBuilder.Entity<Controle>(entity =>
             {
                 entity.ToTable("controle", "pma");
@@ -214,6 +212,29 @@ namespace Data.Context
                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.Datalimite).HasColumnName("datalimite");
+            });
+
+            modelBuilder.Entity<Processo>(entity =>
+            {
+                entity.ToTable("processo", "pma");
+
+                entity.HasIndex(e => e.IdAdverso)
+                    .HasName("idAdverso");
+
+                entity.HasIndex(e => e.IdCliente)
+                    .HasName("idCliente");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.IdAdverso)
+                    .HasColumnName("idAdverso")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.IdCliente)
+                    .HasColumnName("idCliente")
+                    .HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<Ramo>(entity =>
