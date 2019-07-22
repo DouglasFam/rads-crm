@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Data.Repository
 {
-    public interface IBaseRepository<T> where T : BaseEntity
+    public interface IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        void Insert(T obj);
+        void Insert(TEntity obj);
 
-        void Update(T obj);
+        void Update(TEntity obj);
 
         void Remove(int id);
 
-        T Select(int id);
+        TEntity Select(int id);
 
-        IList<T> SelectAll();
+        IEnumerable<TEntity> SelectAll();
     }
 }

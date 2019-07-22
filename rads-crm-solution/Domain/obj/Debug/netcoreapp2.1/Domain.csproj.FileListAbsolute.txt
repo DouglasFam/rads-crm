@@ -9,3 +9,13 @@ C:\Users\dougl\Desktop\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1
 C:\Users\dougl\Desktop\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
 C:\Users\dougl\Desktop\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.dll
 C:\Users\dougl\Desktop\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\bin\Debug\netcoreapp2.1\Domain.deps.json
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\bin\Debug\netcoreapp2.1\Domain.runtimeconfig.json
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\bin\Debug\netcoreapp2.1\Domain.runtimeconfig.dev.json
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\bin\Debug\netcoreapp2.1\Domain.dll
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\bin\Debug\netcoreapp2.1\Domain.pdb
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.csproj.CoreCompileInputs.cache
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfoInputs.cache
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.dll
+E:\Documentos\Projetos\rads-crm\rads-crm-solution\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
