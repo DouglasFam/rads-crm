@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Data.Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         private pmaContext _context;
         public BaseRepository()
@@ -16,29 +16,29 @@ namespace Data.Repository
         }
 
 
-        public void Insert(T obj)
+        public void Insert(TEntity obj)
         {
-            _context.Set<T>().Add(obj);
+            _context.Set<TEntity>().Add(obj);
             _context.SaveChanges();
         }
 
         public void Remove(int id)
         {
-            _context.Set<T>().Remove(Select(id));
+            _context.Set<TEntity>().Remove(Select(id));
             _context.SaveChanges();
         }
 
-        public T Select(int id)
+        public TEntity Select(int id)
         {
-            return _context.Set<T>().Find(id);
+            return _context.Set<TEntity>().Find(id);
         }
 
-        public IList<T> SelectAll()
+        public IEnumerable<TEntity> SelectAll()
         {
-            return _context.Set<T>().ToList();
+            return _context.Set<TEntity>().ToList();
         }
 
-        public void Update(T obj)
+        public void Update(TEntity obj)
         {
             _context.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
