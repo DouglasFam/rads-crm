@@ -32,8 +32,6 @@ namespace Data.Mapping
                     .HasColumnName("idCliente")
                     .HasColumnType("int(11)");
            
-
-            throw new NotImplementedException();
         }
     }
 }

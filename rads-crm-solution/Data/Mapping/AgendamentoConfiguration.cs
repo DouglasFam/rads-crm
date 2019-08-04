@@ -37,9 +37,6 @@ namespace Data.Mapping
                 builder.Property(e => e.Tipo)
                     .HasColumnName("tipo")
                     .HasColumnType("int(11)");
-
-
-            throw new NotImplementedException();
         }
     }
 }

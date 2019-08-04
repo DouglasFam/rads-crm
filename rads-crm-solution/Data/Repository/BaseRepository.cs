@@ -9,7 +9,7 @@ namespace Data.Repository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        private pmaContext _context;
+        protected pmaContext _context;
         public BaseRepository()
         {
             _context = new pmaContext();
@@ -33,7 +33,7 @@ namespace Data.Repository
             return _context.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> SelectAll()
+        public IList<TEntity> SelectAll()
         {
             return _context.Set<TEntity>().ToList();
         }

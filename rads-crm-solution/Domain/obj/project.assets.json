@@ -3553,7 +3553,7 @@
   },
   "packageFolders": {
     "C:\\Users\\GSB\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3565,7 +3565,7 @@
       "outputPath": "E:\\Documentos\\Projetos\\rads-crm\\rads-crm-solution\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\GSB\\AppData\\Roaming\\NuGet\\NuGet.Config",

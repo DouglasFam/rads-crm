@@ -22,10 +22,7 @@ namespace Data.Mapping
                     .HasColumnName("nome")
                     .HasMaxLength(60)
                     .IsUnicode(false);
-          
-
-
-            throw new NotImplementedException();
+         
         }
     }
 }

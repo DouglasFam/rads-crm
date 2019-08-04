@@ -46,9 +46,6 @@ namespace Data.Context
             modelBuilder.ApplyConfiguration(new ControleConfiguration());
             modelBuilder.ApplyConfiguration(new ProcessoConfiguration());
             modelBuilder.ApplyConfiguration(new RamoConfiguration());
-
-
-
         }
     }
 }

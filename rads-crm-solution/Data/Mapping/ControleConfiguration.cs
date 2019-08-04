@@ -20,8 +20,6 @@ namespace Data.Mapping
 
                 builder.Property(e => e.Datalimite).HasColumnName("datalimite");
           
-
-            throw new NotImplementedException();
         }
     }
 }

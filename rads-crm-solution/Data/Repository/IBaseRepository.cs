@@ -13,6 +13,6 @@ namespace Data.Repository
 
         TEntity Select(int id);
 
-        IEnumerable<TEntity> SelectAll();
+        IList<TEntity> SelectAll();
     }
 }

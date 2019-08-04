@@ -1,8 +1,4 @@
-﻿using Data.Context;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Domain.Entities;
 
 namespace Data.Repository
 {
@@ -11,5 +7,6 @@ namespace Data.Repository
         public ClienteRepository()
         {
         }
+
     }
 }
