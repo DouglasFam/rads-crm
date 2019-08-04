@@ -43,7 +43,7 @@ namespace Data.Mapping
                     .HasColumnType("tinyint(1)")
                     .HasDefaultValueSql("1");
           
-            throw new NotImplementedException();
+
         }
     }
 }

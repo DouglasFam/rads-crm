@@ -46,9 +46,6 @@ namespace Data.Mapping
                     .HasColumnName("status")
                     .HasColumnType("int(11)");
        
-
-
-            throw new NotImplementedException();
         }
     }
 }

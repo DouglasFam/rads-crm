@@ -72,10 +72,6 @@ namespace Data.Mapping
                     .HasMaxLength(15)
                     .IsUnicode(false);
          
-
-
-
-            throw new NotImplementedException();
         }
     }
 }
