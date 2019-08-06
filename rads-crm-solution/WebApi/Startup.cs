@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 using WebApi.ModelView;
 
 namespace WebApi
@@ -29,10 +30,21 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info {
+                    Version = "v1",
+                    Title = "My API",
+                    Description = "My First ASP.NET Core Web API",
+                    TermsOfService = "None",
+                    Contact = new Contact() { Name = "Talking Dotnet", Email = "contact@talkingdotnet.com", Url = "www.talkingdotnet.com" }
+                });
+            });
 
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<ClienteViewModel, Cliente>();
+                cfg.CreateMap<Cliente, ClienteViewModel>();
             });
 
             IMapper mapper = config.CreateMapper();
@@ -55,6 +67,12 @@ namespace WebApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            app.UseSwagger();
+
         }
     }
 }

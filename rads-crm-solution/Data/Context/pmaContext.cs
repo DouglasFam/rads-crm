@@ -30,7 +30,7 @@ namespace Data.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("Server=127.0.0.1;port=3306;user=root;database=pma");
+                optionsBuilder.UseMySQL("Server=127.0.0.1;port=3306;user=root;database=pma;convert zero datetime=True");
             }
         }
 
