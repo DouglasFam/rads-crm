@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         }
 
         // GET: api/Cliente/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetCliente")]
         public ClienteViewModel Get(int id)
         {
             return _mapper.Map<ClienteViewModel>(_cliente.Select(id));

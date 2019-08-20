@@ -43,8 +43,26 @@ namespace WebApi
 
             var config = new MapperConfiguration(cfg =>
             {
+                cfg.CreateMap<AdversoViewModel, Adverso>();
+                cfg.CreateMap<Adverso, AdversoViewModel>();
+
+                cfg.CreateMap<AgendamentoViewModel, Agendamento>();
+                cfg.CreateMap<Agendamento, AgendamentoViewModel>();
+
+
                 cfg.CreateMap<ClienteViewModel, Cliente>();
                 cfg.CreateMap<Cliente, ClienteViewModel>();
+
+                cfg.CreateMap<ContatoViewModel, Contato>();
+                cfg.CreateMap<Contato, ContatoViewModel>();
+
+                cfg.CreateMap<ProcessoViewModel, Processo>();
+                cfg.CreateMap<Processo, ProcessoViewModel>();
+
+                cfg.CreateMap<RamoViewModel, Ramo>();
+                cfg.CreateMap<Ramo, RamoViewModel>();
+
+                
             });
 
             IMapper mapper = config.CreateMapper();
