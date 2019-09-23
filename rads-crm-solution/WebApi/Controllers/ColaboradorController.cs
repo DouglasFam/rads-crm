@@ -17,7 +17,8 @@ namespace WebApi.Controllers
     {
         private ColaboradorRepository _colaborador;
         private IMapper _mapper;
-        private ColaboradorController(IMapper mapper)
+
+        public ColaboradorController(IMapper mapper)
         {
             _colaborador = new ColaboradorRepository();
             _mapper = mapper;

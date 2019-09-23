@@ -53,6 +53,9 @@ namespace WebApi
                 cfg.CreateMap<ClienteViewModel, Cliente>();
                 cfg.CreateMap<Cliente, ClienteViewModel>();
 
+                cfg.CreateMap<ColaboradorViewModel, Colaborador>();
+                cfg.CreateMap<Colaborador, ColaboradorViewModel>();
+
                 cfg.CreateMap<ContatoViewModel, Contato>();
                 cfg.CreateMap<Contato, ContatoViewModel>();
 

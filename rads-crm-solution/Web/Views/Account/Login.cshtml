@@ -1,0 +1,80 @@
+﻿@model Domain.Entities.Colaborador
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<div>
+    <h4>Colaborador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adm)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adm)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+
+        </div>
+    }
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.Login)</td>
+            <td>@Html.TextBoxFor(a => a.Login)</td>
+            <td>@Html.ValidationMessageFor(a => a.Login)</td>
+
+        </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.Senha)</td>
+                <td>@Html.PasswordFor(a => a.Senha)</td>
+                <td>@Html.ValidationMessageFor(a => a.Senha)</td>
+
+</tr>   
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+
+            </td>
+        </tr>
+
+    </table>
+</div>
