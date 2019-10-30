@@ -9,19 +9,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj" />
-    <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\WebApi\WebApi.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Views\Account\" />
+    <None Include="wwwroot\Images\Icons\UserAdd_40960.png" />
+    <None Include="wwwroot\Images\Icons\UserEdit_40958.png" />
   </ItemGroup>
 
 </Project>

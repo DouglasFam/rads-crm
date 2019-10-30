@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IList<AgendamentoViewModel> Get()
         {
-            return _mapper.Map<IList<AgendamentoViewModel>>(_agendamento.SelectAll());
+            return _mapper.Map<IList<AgendamentoViewModel>>(_agendamento.SelectAllAsync());
         }
 
         // GET: api/Agendamento/5

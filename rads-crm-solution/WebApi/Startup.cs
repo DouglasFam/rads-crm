@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domain.Entities;
+using IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -41,35 +42,9 @@ namespace WebApi
                 });
             });
 
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<AdversoViewModel, Adverso>();
-                cfg.CreateMap<Adverso, AdversoViewModel>();
 
-                cfg.CreateMap<AgendamentoViewModel, Agendamento>();
-                cfg.CreateMap<Agendamento, AgendamentoViewModel>();
+            DependencyInjector.Register(services);
 
-
-                cfg.CreateMap<ClienteViewModel, Cliente>();
-                cfg.CreateMap<Cliente, ClienteViewModel>();
-
-                cfg.CreateMap<ColaboradorViewModel, Colaborador>();
-                cfg.CreateMap<Colaborador, ColaboradorViewModel>();
-
-                cfg.CreateMap<ContatoViewModel, Contato>();
-                cfg.CreateMap<Contato, ContatoViewModel>();
-
-                cfg.CreateMap<ProcessoViewModel, Processo>();
-                cfg.CreateMap<Processo, ProcessoViewModel>();
-
-                cfg.CreateMap<RamoViewModel, Ramo>();
-                cfg.CreateMap<Ramo, RamoViewModel>();
-
-                
-            });
-
-            IMapper mapper = config.CreateMapper();
-            services.AddSingleton(mapper);
 
         }
 

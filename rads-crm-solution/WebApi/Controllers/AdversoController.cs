@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IList<AdversoViewModel> Get()
         {
-            return _mapper.Map<IList<AdversoViewModel>>(_adverso.SelectAll());
+            return _mapper.Map<IList<AdversoViewModel>>(_adverso.SelectAllAsync());
         }
 
         // GET: api/Adverso/5

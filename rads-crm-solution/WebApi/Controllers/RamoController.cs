@@ -26,7 +26,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IList<RamoViewModel> Get()
         {
-            return _mapper.Map<IList<RamoViewModel>>(_ramo.SelectAll());
+            return _mapper.Map<IList<RamoViewModel>>(_ramo.SelectAllAsync());
         }
 
         // GET: api/Ramo/5

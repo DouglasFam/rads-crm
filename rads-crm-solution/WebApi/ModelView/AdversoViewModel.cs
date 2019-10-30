@@ -10,7 +10,5 @@ namespace WebApi.ModelView
         public string nome { get; set; }
         public int id_Ramo { get; set; }        
         public int idcolcad { get; set; }
-
-
     }
 }

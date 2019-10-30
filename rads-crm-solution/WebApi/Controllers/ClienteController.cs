@@ -25,7 +25,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IList<ClienteViewModel> Get()
         {
-            return _mapper.Map<IList<ClienteViewModel>>(_cliente.SelectAll());
+            return _mapper.Map<IList<ClienteViewModel>>(_cliente.SelectAllAsync());
         }
 
         // GET: api/Cliente/5

@@ -11,24 +11,9 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
      
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            List<Colaborador> ColaboradorList = new List<Colaborador>();
-
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("http://localhost:44393/api/colaborador"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    ColaboradorList = JsonConvert.DeserializeObject<List<Colaborador>>(apiResponse);
-                }
-            }
-            //    var apiResponse = await _httpclient.GetAsync(endpoint.ToString());
-            //apiResponse.EnsureSuccessStatusCode();
-            //string Content = apiResponse.Content.ReadAsStringAsync().Result;
-            //reservationList = JsonConvert.DeserializeObject<List<Colaborador>>(Content);
-
-            return View(ColaboradorList);
+            return View();
         }
 
         public IActionResult Privacy()

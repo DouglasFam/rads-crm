@@ -1,15 +1,13 @@
-﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Data.Repository.Base;
+using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Data.Repository
 {
-    public class AdversoRepository : BaseRepository<Adverso>
+    public class AdversoRepository : BaseRepository<Adverso>, IAdversoRepository
     {
         public AdversoRepository()
         {
-
         }
     }
 }

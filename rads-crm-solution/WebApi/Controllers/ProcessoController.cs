@@ -28,7 +28,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IList<ProcessoViewModel> Get()
         {
-            return _mapper.Map<IList<ProcessoViewModel>>(_processo.SelectAll());
+            return _mapper.Map<IList<ProcessoViewModel>>(_processo.SelectAllAsync());
         }
 
         // GET: api/Processo/5

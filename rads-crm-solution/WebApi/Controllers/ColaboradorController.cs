@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Data.Repository;
 using Domain.Entities;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.ModelView;
@@ -15,58 +16,65 @@ namespace WebApi.Controllers
     [ApiController]
     public class ColaboradorController : ControllerBase
     {
-        private ColaboradorRepository _colaborador;
+        private IColaboradorRepository _colaborador;
         private IMapper _mapper;
 
-        public ColaboradorController(IMapper mapper)
+        public ColaboradorController(IMapper mapper,
+            IColaboradorRepository colaborador)
         {
-            _colaborador = new ColaboradorRepository();
+            _colaborador = colaborador;
             _mapper = mapper;
         }
 
         // GET: api/Colaborador
         [HttpGet]
-        public IList<ColaboradorViewModel> Get()
+        public async Task<IActionResult> Get()
         {
-            return _mapper.Map<IList<ColaboradorViewModel>>(_colaborador.SelectAll());
-        }
-
-        // GET: api/Colaborador/5
-        [HttpGet("{id}", Name = "GetColaborador")]
-        public ColaboradorViewModel Get(int id)
-        {
-            return _mapper.Map<ColaboradorViewModel>(_colaborador.Select(id));
-        }
-
-        // POST: api/Colaborador
-        [HttpPost]
-        public void Post([FromBody] ColaboradorViewModel obj)
-        {
-            if (ModelState.IsValid)
+            try
             {
-                _colaborador.Insert(_mapper.Map<Colaborador>(obj));
+                var results = await _colaborador.SelectAllColaboradorAsync();
+                if (results != null)
+                    return Ok(_mapper.Map<IList<ColaboradorViewModel>>(results));
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
-        // PUT: api/Colaborador/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] ColaboradorViewModel obj)
+        [HttpGet]
+        public async Task<IActionResult> GetById(int id)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var toUpdate = _colaborador.Select(id);
-                if (toUpdate != null)
-                {
-                    _colaborador.Update(toUpdate);
-                }
+                var results = await _colaborador.SelectColaboradorById(id);
+                if (results != null)
+                    return Ok(_mapper.Map<ColaboradorViewModel>(results));
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPut]
+        public async Task<IActionResult> Update(int id,[FromBody] ColaboradorViewModel colaborador)
         {
-            _colaborador.Remove(id);
+            try
+            {
+                await _colaborador.UpdateColaborador(id, _mapper.Map<Colaborador>(colaborador));
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
     }
 }

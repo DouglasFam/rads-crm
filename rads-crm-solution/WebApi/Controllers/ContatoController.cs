@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IList<ContatoViewModel> Get()
         {
-            return _mapper.Map<IList<ContatoViewModel>>(_contato.SelectAll());
+            return _mapper.Map<IList<ContatoViewModel>>(_contato.SelectAllAsync());
         }
 
         // GET: api/Contato/5
